@@ -1,0 +1,7 @@
+[2022-05-07 16:25:01,215: INFO/MainProcess] Connected to redis://172.16.214.225:6379//
+[2022-05-07 16:25:01,220: INFO/MainProcess] mingle: searching for neighbors
+[2022-05-07 16:25:02,319: INFO/MainProcess] mingle: sync with 1 nodes
+[2022-05-07 16:25:02,320: INFO/MainProcess] mingle: sync complete
+[2022-05-07 16:25:02,330: INFO/MainProcess] celery@DESKTOP-6SMJ7FE ready.
+[2022-05-07 16:25:02,335: INFO/MainProcess] pidbox: Connected to redis://172.16.214.225:6379//.
+[2022-05-07 16:25:03,991: WARNING/MainProcess] Substantial drift from celery@4da4c088ddfc may mean clocks are out of sync.  Current drift is 276 seconds.  [orig: 2022-05-07 16:25:03.991364 recv: 2022-05-07 16:29:39.138562]
