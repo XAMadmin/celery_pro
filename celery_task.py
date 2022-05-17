@@ -7,8 +7,8 @@ from celery import Celery
 
 
 class Config():
-    broker_url  = 'redis://172.16.214.225:6379' # redis 存储发送端来的任务队列
-    result_backed = 'redis://172.16.214.225:6379' # 用redis存储执行端执行得到结果
+    broker_url  = 'redis://127.0.0.1:6379' # redis 存储发送端来的任务队列
+    result_backed = 'redis://127.0.0.1:6379' # 用redis存储执行端执行得到结果
     timezone = 'Asia/Shanghai' # 设置时间的时区  注意这里是上海
 
     beat_schedule = {
@@ -24,7 +24,7 @@ celery_app.config_from_object(Config)
 
 
 def get_store():
-    conn = pymssql.connect("172.16.214.180", "sa", "jy135", "ksoa")
+    conn = pymssql.connect("", "", "", "")
     cursor = conn.cursor(as_dict=True)
     cursor.execute("""
             select a.*,  b.hwbh as hw from sphwph a join huoweizl b on a.hw=b.hw
@@ -41,10 +41,10 @@ def insert_store(data_dict,sema):
 
     sema.acquire()
     print(data_dict)
-    conn = pymysql.connect(host='172.16.214.225',
-                        user='root',
-                        password='1234QWER',
-                        database='juyuaninfo',
+    conn = pymysql.connect(host='',
+                        user='',
+                        password='1',
+                        database='',
                         cursorclass=pymysql.cursors.DictCursor)
    
 
@@ -67,10 +67,10 @@ def insert_store(data_dict,sema):
 
 @celery_app.task
 def run():
-    conn = pymysql.connect(host='172.16.214.225',
-                            user='root',
-                            password='1234QWER',
-                            database='juyuaninfo',
+    conn = pymysql.connect(host='',
+                            user='',
+                            password='',
+                            database='',
                             cursorclass=pymysql.cursors.DictCursor)
     cursor = conn.cursor()
     cursor.execute("delete from ksoa_sphwph")
